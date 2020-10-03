@@ -9,10 +9,7 @@ terraform {
         storage_account_name    =   "tfstorageballayo"
         container_name          =   "tfstate"
         key                     =   "terraform.tfstate" //filnavn
-        
-
-
-    }
+        }
 
 
 }
