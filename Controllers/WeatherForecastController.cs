@@ -4,13 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Datadog.Trace;
+
 
 namespace weatherapi.Controllers
 {
+   
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+    
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chillys", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -23,10 +27,17 @@ namespace weatherapi.Controllers
             _logger = logger;
         }
 
+        
+
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            
+            var scope = Tracer.Instance.ActiveScope;
             var rng = new Random();
+            using (var parentScope =
+       Tracer.Instance.StartActive("weatherforecast.get"))
+{
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
@@ -34,6 +45,9 @@ namespace weatherapi.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+}
         }
     }
 }
+
+

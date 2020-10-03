@@ -10,7 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
+using Datadog.Trace.Configuration;
+using Datadog.Trace;
 namespace weatherapi
 {
     public class Startup
@@ -18,6 +19,7 @@ namespace weatherapi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+           
         }
 
         public IConfiguration Configuration { get; }

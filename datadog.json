@@ -1,0 +1,6 @@
+{
+    "DD_TRACE_AGENT_URL": "http://localhost:8126",
+    "DD_ENV": "test",
+    "DD_SERVICE": "vejrapi",
+    "DD_VERSION": "1",
+}

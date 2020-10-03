@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Datadog.Trace.Configuration;
+using Datadog.Trace;
 
 namespace weatherapi
 {
@@ -14,6 +16,9 @@ namespace weatherapi
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+             var settings = TracerSettings.FromDefaultSources();
+            var tracer = new Tracer(settings);
+            Tracer.Instance = tracer;
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
