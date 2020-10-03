@@ -55,4 +55,4 @@ resource "azurerm_container_group" "tfcg_test" {
 //init
 //plan
 //apply
-//destroydddtriggerbuildffddd
+//destroydddtriggerbuildffdddd
