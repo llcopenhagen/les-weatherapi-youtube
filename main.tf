@@ -1,5 +1,5 @@
 provider "azurerm" {
-    version = "2.5.0"
+  //  version = "2.5.0"
     features {}
 }
 //hav tf.state filen i azure blob storage i backend.
