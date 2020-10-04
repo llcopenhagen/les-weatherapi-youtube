@@ -18,7 +18,7 @@ namespace weatherapi
             CreateHostBuilder(args).Build().Run();
              var settings = TracerSettings.FromDefaultSources();
             var tracer = new Tracer(settings);
-            Tracer.Instance = tracer;
+            //Tracer.Instance = tracer;
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

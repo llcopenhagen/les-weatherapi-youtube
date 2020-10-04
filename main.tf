@@ -56,3 +56,4 @@ resource "azurerm_container_group" "tfcg_test" {
 //plan
 //apply
 //destroydddtriggerbuildffdddd
+// http.status_code
